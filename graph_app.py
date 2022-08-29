@@ -145,7 +145,7 @@ def process_figure_generation(): #Create File
         with zipfile.ZipFile('figures/images.zip', 'w', zipfile.ZIP_DEFLATED) as zipf:
             zipdir('figures/', zipf)
     else:
-        file_path =
+        file_path = "./CDAP Template.xlsx"
         with open(file_path, 'rb') as my_file:
             st.download_button(label = 'Download Blank Template', data = my_file, file_name = 'CDAP Template.xlsx', mime = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
 
