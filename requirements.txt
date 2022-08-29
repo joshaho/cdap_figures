@@ -1,6 +1,6 @@
 streamlit
 pandas
-textwrap
+textwrap3
 matplotlib
 numpy
 os
