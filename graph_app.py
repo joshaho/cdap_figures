@@ -165,7 +165,7 @@ def main():
             if st.button('Clear Files'):
                 for root, dirs, files in os.walk('figures/'):
                     for file in files:
-                        os.remove(file)
+                        os.remove('figures/' + file)
 
 if __name__ == "__main__":
     main()
