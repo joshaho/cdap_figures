@@ -157,12 +157,15 @@ def main():
     st.title("CDAP Graph Generation")
     if not os.path.exists('figures'):
         os.makedirs('figures')
-    process_figure_generation()
+        skip_generation = False
+    if not skip_generation:
+        process_figure_generation()
     if os.path.exists('figures/images.zip'):
         clear_cache = False
         with open('figures/images.zip', 'rb') as f:
             st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
             if st.button('Clear Files'):
+                skip_generation = True
                 for root, dirs, files in os.walk('figures/'):
                     for file in files:
                         os.remove('figures/' + file)
