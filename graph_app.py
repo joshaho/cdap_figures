@@ -160,8 +160,11 @@ def main():
     process_figure_generation()
     if os.path.exists('figures/images.zip'):
         with open('figures/images.zip', 'rb') as f:
-            st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
-
+            clear_cache = st.download_button('Download Zip', f, on_click=True, file_name='archive.zip')  # Defaults to 'application/octet-stream'
+            if clear_cache:
+                for root, dirs, files in os.walk('figures/'):
+                    for file in files:
+                        os.remove(file)
 
 if __name__ == "__main__":
     main()
