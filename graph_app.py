@@ -155,9 +155,9 @@ def process_figure_generation(): #Create File
 
 def main():
     st.title("CDAP Graph Generation")
+    skip_generation = False
     if not os.path.exists('figures'):
         os.makedirs('figures')
-        skip_generation = False
     if not skip_generation:
         process_figure_generation()
     if os.path.exists('figures/images.zip'):
