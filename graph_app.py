@@ -159,9 +159,10 @@ def main():
         os.makedirs('figures')
     process_figure_generation()
     if os.path.exists('figures/images.zip'):
+        clear_cache = False
         with open('figures/images.zip', 'rb') as f:
-            clear_cache = st.download_button('Download Zip', f, on_click=True, file_name='archive.zip')  # Defaults to 'application/octet-stream'
-            if clear_cache:
+            st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
+            if st.button('Clear Files'):
                 for root, dirs, files in os.walk('figures/'):
                     for file in files:
                         os.remove(file)
