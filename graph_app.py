@@ -161,10 +161,10 @@ def main():
         skip_generation = False
     if not os.path.exists('figures'):
         os.makedirs('figures')
+    st.write(skip_generation)
     if not skip_generation:
         process_figure_generation()
     if os.path.exists('figures/images.zip'):
-        clear_cache = False
         with open('figures/images.zip', 'rb') as f:
             st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
             if st.button('Clear Files'):
