@@ -1,3 +1,5 @@
-# koalatech-streamlit
+# Streamlit Figure Generation Demo
 
-This is a small figure-generation application to take a template input and output a package of png images that are outside of the standard excel capabilities. This allows for the repeatable and reproducible production of figures for specific templated deliverables.
+This is a small figure-generation application leveraging [streamlit.io](Streamlit) to take an excel template input and output a package of png images that are outside of the standard excel capabilities. 
+
+This allows for a variety of use-cases including the repeatable production of figures for specific templated deliverables.
