@@ -129,8 +129,8 @@ def process_figure_generation(): #Create File
         full_dataset = answers.join(mapping_filtered)
         st.dataframe(full_dataset)
         st.text(len(full_dataset))
-        score_summary = full_dataset.groupby(by = "variable").sum().drop("Benchmark", axis=1)
-        st.text(score_summary.select_dtypes(['number']))
+        score_summary = full_dataset.groupby(by = "variable").sum().drop("Benchmark", axis=1).select_dtypes(['number'])
+        st.text(score_summary)
         st.dataframe(score_summary)
         normalized_score_summary=(score_summary)/(score_summary.max().max())
         normalized_score_summary["Need Score"] = normalized_score_summary["Target"] - normalized_score_summary["Your Score"]
