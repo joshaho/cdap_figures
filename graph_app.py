@@ -123,11 +123,11 @@ def process_figure_generation(): #Create File
 
         #Manipulate Dataframe to right format
         mapping_long = mapping.drop("Question", axis=1).melt(ignore_index=False)
-        st.text("long: "+len(mapping_long))
+        st.text(len(mapping_long))
         mapping_filtered = mapping_long[mapping_long.value =="Yes"]
-        st.text("filtered: "+len(mapping_filtered))
+        st.text(len(mapping_filtered))
         full_dataset = answers.join(mapping_filtered)
-        st.text("full_dataset: "+len(full_dataset))
+        st.text(len(full_dataset))
         score_summary = full_dataset.groupby(by = "variable").sum().drop("Benchmark", axis=1)
         normalized_score_summary=(score_summary)/(score_summary.max().max())
         normalized_score_summary["Need Score"] = normalized_score_summary["Target"] - normalized_score_summary["Your Score"]
