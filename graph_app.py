@@ -130,7 +130,7 @@ def process_figure_generation(): #Create File
         st.dataframe(full_dataset)
         st.text(len(full_dataset))
         score_summary = full_dataset.groupby(by = "variable").sum().drop("Benchmark", axis=1)
-        st.text(score_summary.dtypes)
+        st.text(score_summary.select_dtypes(['number']))
         st.dataframe(score_summary)
         normalized_score_summary=(score_summary)/(score_summary.max().max())
         normalized_score_summary["Need Score"] = normalized_score_summary["Target"] - normalized_score_summary["Your Score"]
