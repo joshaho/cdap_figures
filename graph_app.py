@@ -127,6 +127,7 @@ def process_figure_generation(): #Create File
         mapping_filtered = mapping_long[mapping_long.value =="Yes"]
         st.text(len(mapping_filtered))
         full_dataset = answers.join(mapping_filtered)
+        st.dataframe(full_dataset)
         st.text(len(full_dataset))
         score_summary = full_dataset.groupby(by = "variable").sum().drop("Benchmark", axis=1)
         normalized_score_summary=(score_summary)/(score_summary.max().max())
